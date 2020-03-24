@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://{{ db_url }}/{{ db_name }}
+    username: {{ db_user }}
+    password: {{ db_pass }}
+  flyway:
+    enabled: true
+  jpa:
+    show-sql: true

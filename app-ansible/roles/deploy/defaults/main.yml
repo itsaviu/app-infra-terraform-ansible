@@ -1,0 +1,7 @@
+---
+
+deploy_app_dir: 'demo-app'
+db_url: '{{ dburl }}'
+db_user: 'postgres'
+db_pass: '{{ dbpass }}'
+db_name: 'postgres'

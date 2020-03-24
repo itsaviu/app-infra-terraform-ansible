@@ -1,0 +1,6 @@
+---
+
+java_archive_name: jdk-8u241-linux-x64.tar.gz
+java_download_url: 'https://download.oracle.com/otn-pub/java/jdk/8u241-b07/1f5b5a70bf22433b84d0e960903adac8/{{ java_archive_name }}'
+java_root_dir: /usr/share/java-1.8.0
+java_jdk_dir: '{{ java_root_dir }}/jdk1.8.0_241'

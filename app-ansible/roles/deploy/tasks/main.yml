@@ -1,0 +1,21 @@
+---
+
+- file: name={{ deploy_app_dir }} state=directory  mode=0755
+
+- name: Moving Application YML
+  template:
+    src: files/application.yml.j2
+    dest: "{{ deploy_app_dir }}/application.yml"
+
+- name: Moving jar
+  copy:
+    src: files/app.tar.gz
+    dest: "{{ deploy_app_dir }}/app.tar.gz"
+
+- name: Moving deploy script
+  template:
+    src: files/start_service.sh.j2
+    dest: "{{ deploy_app_dir }}/start_service.sh"
+
+- name: Execute the script
+  command: sh {{ deploy_app_dir }}/start_service.sh
