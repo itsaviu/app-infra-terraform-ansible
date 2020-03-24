@@ -6,6 +6,7 @@ resource "aws_instance" "instance" {
   key_name = var.KEY_PAIR_ID
 
   connection {
+    host = self.private_ip
     private_key = file(var.SSH_SECRET_KEY)
     user        = "ubuntu"
   }
