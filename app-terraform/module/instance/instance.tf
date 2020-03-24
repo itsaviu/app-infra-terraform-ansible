@@ -17,8 +17,8 @@ resource "aws_instance" "instance" {
 
   provisioner "local-exec" {
     command = <<EOT
-          sleep 20;
-          ansible-playbook -i '${self.private_ip},' --private-key ${var.SSH_SECRET_KEY} -u ubuntu  ../app-ansible/dev_instance.yml --extra-vars 'hostname=${var.PROXY_PASS_HOST} dburl=${var.DB_URL} dbpass=${var.DB_PASSWORD}' -vvv
+          export ANSIBLE_HOST_KEY_CHECKING=False
+          ansible-playbook -i '${self.private_ip},' --private-key ${var.SSH_SECRET_KEY} -u ubuntu  ../../app-ansible/dev_instance.yml --extra-vars 'hostname=${var.PROXY_PASS_HOST} dburl=${var.DB_URL} dbpass=${var.DB_PASSWORD}' -vvv
         EOT
   }
 
