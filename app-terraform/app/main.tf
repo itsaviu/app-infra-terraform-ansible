@@ -1,14 +1,18 @@
 locals {
+  
   BUILD_VPC="vpc-04d76ebde474cb98e"
   BUILD_ROUTE_TABLE="rtb-039b1cff3400f3109"
   BUILD_SG="sg-0fdcce8d9ab6ee5a0"
   BUILD_SUBNET="subnet-0ed3f2ead1e0674a3"
+
+  SECRET_KEY="/home/ubuntu/.ssh/id_rsa"
+  SSH_KEY_DIR="/home/ubuntu/.ssh/id_rsa.pub"
 }
 
 
 module "key-gen" {
   source = "../module/key_pair"
-  KEY_DIR = "/home/ubuntu/.ssh/id_rsa.pub"
+  KEY_DIR = local.SSH_KEY_DIR
   RESOURCE_NAME = "instace_key"
 }
 
@@ -18,7 +22,7 @@ module "aws_proxy_instance" {
   INSTANCE_TYPE = "t2.micro"
   KEY_PAIR_ID = module.key-gen.KEY_PAIR_ID
   RESOURCE_NAME = "Proxy Instance"
-  SSH_SECRET_KEY = "/home/ubuntu/.ssh/id_rsa"
+  SSH_SECRET_KEY = local.SECRET_KEY
   VPC_ID = local.BUILD_VPC
   ROUTE_TABLE_ID = local.BUILD_ROUTE_TABLE
   SUBNET_ID = module.aws_network.PROXY_SUBNET_ID
@@ -34,7 +38,7 @@ module "aws_proxy_instance_2" {
   INSTANCE_TYPE = "t2.micro"
   KEY_PAIR_ID = module.key-gen.KEY_PAIR_ID
   RESOURCE_NAME = "Proxy Instance 2"
-  SSH_SECRET_KEY = "/home/ubuntu/.ssh/id_rsa"
+  SSH_SECRET_KEY = local.SECRET_KEY
   VPC_ID = local.BUILD_VPC
   ROUTE_TABLE_ID = local.BUILD_ROUTE_TABLE
   SUBNET_ID = module.aws_network.PROXY_2_SUBNET_ID
@@ -49,7 +53,7 @@ module "aws_webapp_instance" {
   INSTANCE_TYPE = "t2.micro"
   KEY_PAIR_ID = module.key-gen.KEY_PAIR_ID
   RESOURCE_NAME = "Web Instance"
-  SSH_SECRET_KEY = "/home/ubuntu/.ssh/id_rsa"
+  SSH_SECRET_KEY = local.SECRET_KEY
   ACCESSIBLE_INSTANCE_SG = list(local.BUILD_SG, module.aws_proxy_instance.INSTANCE_SG, module.aws_proxy_instance_2.INSTANCE_SG)
   VPC_ID = local.BUILD_VPC
   ROUTE_TABLE_ID = module.aws_network.ROUTE_NAT_ID

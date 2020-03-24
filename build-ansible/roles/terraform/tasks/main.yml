@@ -1,0 +1,18 @@
+---
+
+- include: download.yml
+
+- file: name={{ terraform_dir }} state=directory  mode=0755
+
+- name: Unarchive Terraform archive
+  unarchive:
+    src: /tmp/terraform-{{terraform_version}}.zip
+    dest: "{{terraform_dir}}"
+    copy: no
+
+
+- name: Adding terraform command to user path
+  file:
+    src: "/home/ubuntu/{{terraform_dir}}/terraform"
+    dest: /usr/bin/terraform
+    state: link

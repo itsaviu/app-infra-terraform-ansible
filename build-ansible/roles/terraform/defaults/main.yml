@@ -1,0 +1,5 @@
+---
+# defaults file for terraform
+
+terraform_version: '0.12.21'
+terraform_dir: 'terraform-package'
