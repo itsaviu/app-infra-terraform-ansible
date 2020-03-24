@@ -13,7 +13,7 @@ resource "aws_instance" "instance" {
   }
 
   provisioner "remote-exec" {
-    inline = ["sudo apt-get -qq install python -y"]
+    inline = ["sudo apt-get update && sudo apt-get -qq install python -y"]
   }
 
   provisioner "local-exec" {
