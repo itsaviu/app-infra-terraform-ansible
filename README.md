@@ -1,5 +1,8 @@
 [ NOTE : This script will be able to run only in an Predefined Instance Contact Avi to get the instance detail ]
-  
+
+### Overview ###
+The Script is to deploy `Spring boot application` in ec2 instance  
+
 ### Prerequisite ###
 
 * Bash into Predefined Instance
