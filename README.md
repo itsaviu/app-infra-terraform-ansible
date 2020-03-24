@@ -2,7 +2,10 @@
 
 ### Overview ###
 The Script is to deploy `Spring boot application` in ec2 instance  
-
+* Output URL 
+```$xslt
+<loadbalancer-url>/swagger-ui.html
+```
 ### Prerequisite ###
 
 * Bash into Predefined Instance
