@@ -6,6 +6,20 @@
 ```
    ssh -i ~/instance.pem ubuntu@123.123.123.123
 ```
+* clone the Repo
+```
+https://github.com/itsaviu/app-infra-terraform-ansible.git
+```
+
+* Directory Structure
+```
+| - app-infra-terraform-ansible
+            |
+            |-- app-ansible //Ansible code
+            |
+            |-- app-terraform //Terraform code
+```
+
 * Export creds in `aws configure`
 * Provide Creds in `provider.tf`  
 ```
