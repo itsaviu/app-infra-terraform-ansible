@@ -19,7 +19,7 @@ resource "aws_instance" "instance" {
   provisioner "local-exec" {
     command = <<EOT
               sleep 20;
-              ansible-playbook -i '${self.private_ip},' --private-key ${var.SSH_SECRET_KEY} -u ubuntu  ~/app-ansible/proxy.yml --extra-vars 'hostname=${var.PROXY_PASS_HOST}' -vvv
+              ansible-playbook -i '${self.private_ip},' --private-key ${var.SSH_SECRET_KEY} -u ubuntu  ../app-ansible/proxy.yml --extra-vars 'hostname=${var.PROXY_PASS_HOST}' -vvv
           EOT
   }
 
