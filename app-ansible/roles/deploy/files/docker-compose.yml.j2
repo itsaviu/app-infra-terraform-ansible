@@ -1,0 +1,15 @@
+version: "3"
+services:
+  user-service:
+    image: aviu95/demo:latest
+    ports:
+      - "8080:8080"
+    environment:
+      - MANAGER_DB_HOST={{ db_url }}
+      - MANAGER_DB_NAME={{ db_name }}
+      - MANGER_DB_USERNAME={{ db_user }}
+      - MANAGER_DB_PASSWORD={{ db_pass }}
+
+    volumes:
+      - ./logs:/logs
+

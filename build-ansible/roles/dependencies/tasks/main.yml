@@ -4,7 +4,7 @@
 - name: install the package, force upgrade
   apt:
     force_apt_get: yes
-    name: ['python3-pip', 'unzip']
+    name: ['unzip', 'apt-transport-https', 'ca-certificates', 'curl', 'software-properties-common', 'python3-pip', 'virtualenv', 'python3-setuptools']
     install_recommends: yes
 
 - name: Install Ansible via Pip.

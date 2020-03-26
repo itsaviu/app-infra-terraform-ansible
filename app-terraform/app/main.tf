@@ -1,5 +1,5 @@
 locals {
-  
+
   BUILD_VPC="vpc-04d76ebde474cb98e"
   BUILD_ROUTE_TABLE="rtb-039b1cff3400f3109"
   BUILD_SG="sg-0fdcce8d9ab6ee5a0"

@@ -4,13 +4,8 @@
 
 - name: Moving Application YML
   template:
-    src: files/application.yml.j2
-    dest: "{{ deploy_app_dir }}/application.yml"
-
-- name: Moving jar
-  copy:
-    src: files/app.tar.gz
-    dest: "{{ deploy_app_dir }}/app.tar.gz"
+    src: files/docker-compose.yml.j2
+    dest: "{{ deploy_app_dir }}/docker-compose.yml.j2"
 
 - name: Moving deploy script
   template:
