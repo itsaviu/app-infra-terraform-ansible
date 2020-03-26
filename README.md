@@ -9,6 +9,6 @@ To Setup the infra, there two terraform modules
 
 
 ### How to setup ###
-* Run build-terraform (Refer README.md in `build-terraform/`)
+* Run build-terraform (Refer [README.md](./build-terraform/README.md) in `build-terraform/`)
 * Use to Output from `build-terraform`
-* Run app-terraform (Refer README.md in `app-terraform/`)
+* Run app-terraform (Refer [README.md](./app-terraform/README.md) in `app-terraform/`)
